@@ -1,5 +1,5 @@
-﻿@*@model IEnumerable<MarryMeStore.ViewModel.ItemViewModel>*@
-@{
+﻿@{
+    
     ViewBag.Title = "";
 }
 
@@ -23,31 +23,35 @@
                 <h2 class="section-title">Latest Offers</h2>
                 <div class="row">
                     <div class="col-md-4">
-                        <div class="card card-product card-plain">
-                            <div class="card-image">
-                                <a href="#pablo">
-                                    <img src="~/Content/img/suit-1.jpg" />
-                                </a>
-                            </div>
-                            <div class="card-content">
-                                <h4 class="card-title">
-                                    Dolce
-                                </h4>
-                                <p class="card-description">The structured shoulders and sleek detailing ensure a sharp silhouette. Team it with a silk pocket square and leather loafers.</p>
-                                <div class="footer">
-                                    <div class="price-container">
+                        @foreach (var item in ViewBag.content)
+    {
+                    <div class="card card-product card-plain">
+                        <div class="card-image">
+                            <a href="#pablo">
+                                <img src="@Url.Content(@item.ImageUrl)" alt="image is currently unavailable" />
+                            </a>
+                        </div>
+                        <div class="card-content">
+                            <h4 class="card-title">
+                                @item.ItemName
+                            </h4>
+                            <p class="card-description">@item.Description</p>
+                            <div class="footer">
+                                <div class="price-container">
 
-                                        <span class="price price-new"> &euro;743</span>
-                                    </div>
-                                    <div class="stats">
+                                    <span class="price price-new"> &euro;743</span>
+                                </div>
+                                <div class="stats">
 
-                                        <a href="#" class="btn btn-rose btn-round">
-                                            Buy Now
-                                        </a>
-                                    </div>
+                                    <a href="#" class="btn btn-rose btn-round">
+                                        Buy Now
+                                    </a>
                                 </div>
                             </div>
                         </div>
+                    </div>
+}
+
                     </div>
                     <div class="col-md-4">
                         <div class="card card-product card-plain">

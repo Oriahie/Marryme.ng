@@ -1,6 +1,7 @@
 ﻿using Domain.Entities;
 using MarryMeStore.ViewModel;
 using Service;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -21,16 +22,18 @@ namespace MarryMeStore.Controllers
 
         public ActionResult Index()
         {
-           // var all = context.GetAll().ToList();
+            List<Item> all = context.GetAll().ToList();
+            ViewBag.content = all;
 
-            ItemViewModel ivm = new ItemViewModel
-            {
-               // Items = all,
-                ItemName = item.ItemName,
-                Price = item.Price,
-                Description = item.Description,
-                ImageUrl = item.ImageUrl
-            };
+            //ItemViewModel ivm = new ItemViewModel
+            //{
+                
+            //    Items = all,
+            //    ItemName = item.ItemName,
+            //    Price = item.Price,
+            //    Description = item.Description,
+            //    ImageUrl = item.ImageUrl
+            //};
 
             
             

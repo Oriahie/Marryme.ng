@@ -1,5 +1,4 @@
 ﻿using Domain.Entities;
-using MarryMeStore.ViewModel;
 using Service;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,12 +10,12 @@ namespace MarryMeStore.Controllers
     {
         
         private readonly MarryService<Item> context;
-        private readonly Item item;
+        
         public HomeController()
         {
             
             context = new MarryService<Item>();
-            item = new Item();
+            
             
         }
 
@@ -24,19 +23,7 @@ namespace MarryMeStore.Controllers
         {
             List<Item> all = context.GetAll().ToList();
             ViewBag.content = all;
-
-            //ItemViewModel ivm = new ItemViewModel
-            //{
-                
-            //    Items = all,
-            //    ItemName = item.ItemName,
-            //    Price = item.Price,
-            //    Description = item.Description,
-            //    ImageUrl = item.ImageUrl
-            //};
-
-            
-            
+  
             
             return View();
         }

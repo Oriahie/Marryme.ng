@@ -18,7 +18,7 @@ namespace Infrastructure.Data.Migrations
                 ItemName = "Gucci",
                 Price = 30000,
                 Description = "A two buttton suit, perfect for your wedding occasion.",
-                ImageUrl = "~/Content/img/suit-1.jpg"
+                ImageUrl = "suit-1.jpg"
                 
             };
 
@@ -27,7 +27,7 @@ namespace Infrastructure.Data.Migrations
                 ItemName = "Dolce & Gabana",
                 Price = 45000,
                 Description = "A two button suit, perfect for your wedding occasion.",
-                ImageUrl = "~/Content/img/suit-3.jpg"
+                ImageUrl = "suit-3.jpg"
 
             };
 
@@ -36,7 +36,7 @@ namespace Infrastructure.Data.Migrations
                 ItemName = "Louis Vuitton",
                 Price = 39000,
                 Description = "A two button  suit, perfect for your wedding occasion.",
-                ImageUrl = "~/Content/img/suit-6.jpg"
+                ImageUrl = "suit-6.jpg"
 
             };
 
@@ -45,7 +45,7 @@ namespace Infrastructure.Data.Migrations
                 ItemName = "Rhesus",
                 Price = 26000,
                 Description = "A silver diamond encrusted ring, forged from the uhu metals of Asgard .",
-                ImageUrl = "~/Content/img/ring1.jpeg"
+                ImageUrl = "ring1.jpeg"
 
             };
 
@@ -54,7 +54,7 @@ namespace Infrastructure.Data.Migrations
                 ItemName = "Metallo",
                 Price = 15000,
                 Description = "A Gold and Silver ring with a diamond at its core.",
-                ImageUrl = "~/Content/img/ring2.jpeg"
+                ImageUrl = "ring2.jpeg"
 
             };
 
@@ -63,7 +63,7 @@ namespace Infrastructure.Data.Migrations
                 ItemName = "Mirage",
                 Price = 44000,
                 Description = "Purple never felt better.",
-                ImageUrl = "~/Content/img/ring3.jpeg"
+                ImageUrl = "ring3.jpeg"
 
             };
 
@@ -74,7 +74,7 @@ namespace Infrastructure.Data.Migrations
                 ItemName = "Givenchy",
                 Price = 150000,
                 Description = "Elegant, Graceful and  Beautiful are words that best describe this beauty",
-                ImageUrl = "~/Content/img/dress3.jpg"
+                ImageUrl = "dress2.jpeg"
 
             };
 
@@ -83,16 +83,16 @@ namespace Infrastructure.Data.Migrations
                 ItemName = "Altrs & Beddo",
                 Price = 255000,
                 Description = "This effortless beauty was handcrafted by skilled professionals over the period of 150 days. Woven to perfection",
-                ImageUrl = "~/Content/img/dress1.jpg"
+                ImageUrl = "dress1.jpeg"
 
             };
 
             var item9 = new Item
             {
-                ItemName = "Xio Yang",
+                ItemName = "Etherium",
                 Price = 96000,
                 Description = "A Beautiful dress handed down to earthlings by Mother Gaia herself!!",
-                ImageUrl = "~/Content/img/dressB.jpeg"
+                ImageUrl = "dress3.jpeg"
 
             };
 
@@ -132,14 +132,14 @@ namespace Infrastructure.Data.Migrations
             //Vendor
             var vendor1 = new Vendor
             {
-                VendorName = "Winnie Maids",
+                VendorName = "Exousia Cuts",
                 Categories = new List<Category>()
                 {
-                    category1,category2,category3
+                    category1
                 },
                 Items = new List<Item>()
                 {
-                    item1,item2,item4,item5,item7
+                    item1,item2,item3
                 }
             };
 
@@ -148,20 +148,34 @@ namespace Infrastructure.Data.Migrations
                 VendorName = "Andora",
                 Categories = new List<Category>()
                 {
-                    category1,category2,category3
+                    category2
                 },
                 Items = new List<Item>()
                 {
-                    item3,item6,item8,item9
+                    item4,item5,item6
+                }
+            };
+
+            var vendor3 = new Vendor
+            {
+                VendorName = "Winnie Maids",
+                Categories = new List<Category>()
+                {
+                    category3
+                },
+                Items = new List<Item>()
+                {
+                    item7,item8,item9
                 }
             };
 
             //seed to DB
-            context.Set<Category>().AddOrUpdate(c => c.CategoryName, category1);
-            context.Set<Category>().AddOrUpdate(c => c.CategoryName, category2);
-            context.Set<Category>().AddOrUpdate(c => c.CategoryName, category3);
-            context.Set<Vendor>().AddOrUpdate(c => c.VendorName, vendor1);
-            context.Set<Vendor>().AddOrUpdate(c => c.VendorName, vendor2);
+            //context.Set<Category>().AddOrUpdate(c => c.CategoryName, category1);
+            //context.Set<Category>().AddOrUpdate(c => c.CategoryName, category2);
+            //context.Set<Category>().AddOrUpdate(c => c.CategoryName, category3);
+            //context.Set<Vendor>().AddOrUpdate(c => c.VendorName, vendor1);
+            //context.Set<Vendor>().AddOrUpdate(c => c.VendorName, vendor2);
+            //context.Set<Vendor>().AddOrUpdate(c => c.VendorName, vendor3);
 
 
 

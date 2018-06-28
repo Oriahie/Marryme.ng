@@ -36,6 +36,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.2.0.0\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -57,8 +60,21 @@
     <Compile Include="Migrations\201806131709564_SeedingDb.Designer.cs">
       <DependentUpon>201806131709564_SeedingDb.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806231158334_IndexViewFix.cs" />
+    <Compile Include="Migrations\201806231158334_IndexViewFix.Designer.cs">
+      <DependentUpon>201806231158334_IndexViewFix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806231449161_AddDelete.cs" />
+    <Compile Include="Migrations\201806231449161_AddDelete.Designer.cs">
+      <DependentUpon>201806231449161_AddDelete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806272101579_AddImage.cs" />
+    <Compile Include="Migrations\201806272101579_AddImage.Designer.cs">
+      <DependentUpon>201806272101579_AddImage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RepoModule.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Domain.Entities\Domain.Entities.csproj">
@@ -82,6 +98,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806131709564_SeedingDb.resx">
       <DependentUpon>201806131709564_SeedingDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806231158334_IndexViewFix.resx">
+      <DependentUpon>201806231158334_IndexViewFix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806231449161_AddDelete.resx">
+      <DependentUpon>201806231449161_AddDelete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806272101579_AddImage.resx">
+      <DependentUpon>201806272101579_AddImage.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

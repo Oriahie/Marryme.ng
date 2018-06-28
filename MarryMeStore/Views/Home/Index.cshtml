@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<Domain.Entities.Item>
+@{
 
     ViewBag.Title = "";
 }
@@ -18,290 +19,98 @@
 
 
 
-{
-    <div class="main main-raised">
-        <div class="section">
-            <div class="container">
-                <h2 class="section-title">Latest Offers</h2>
-                <div class="row">
-                    <div class="col-md-4">
 
-                        @foreach (var item in ViewBag.content)
-
+<div class="main main-raised">
+    <div class="section">
+        <div class="container">
+            <h2 class="section-title" style="text-align:center">Latest Offers</h2>
+            <div class="row">
+                @foreach (var item in Model)
     {
-                    <div class="card card-product card-plain">
-                        <div class="card-image">
-                            <a href="#pablo">
-                                <img src="@Url.Content(@item.ImageUrl)" alt="image is currently unavailable" />
-                            </a>
-                        </div>
-                        <div class="card-content">
-                            <h4 class="card-title">
-                                @item.ItemName
-                            </h4>
-                            <p class="card-description">@item.Description</p>
-                            <div class="footer">
-                                <div class="price-container">
+            <div class="col-md-4 delete ">
+                <div class="card card-product card-plain card-deck ">
+                    <div class="card-image">
+                        <a>
+                            @{ 
+                                var base64 = Convert.ToBase64String(item.Image);
+                                var imgsrc = string.Format("data:image/jpg;base64,{0}", base64);
+                            }
 
-                                    <span class="price price-new"> ₦@item.Price</span>
-                                </div>
-                                <div class="stats">
-
-                                    <a href="#" class="btn btn-rose btn-round">
-                                        Buy Now
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                            <img src="@imgsrc" alt="image is currently unavailable" class="img-responsive img-rounded" />
+                          
+                        </a>
                     </div>
-}
+                    <div class="card-content">
+                        <h4 class="card-title">
+                            @item.ItemName
+                        </h4>
+                        <p class="card-description">@item.Description</p>
+                        <div class="footer">
+                            <div class="price-container">
 
-
-
-
-                    </div>
-                    @*<div class="col-md-4">
-                        <div class="card card-product card-plain">
-                            <div class="card-image">
-                                <a href="#pablo">
-                                    <img src="~/Content/img/suit-3.jpg" />
+                                <span class="price price-new"> ₦@item.Price</span>
+                            </div>
+                            <div class="stats">
+                                <button class="js-delete btn btn-rose btn-round" data-staff-id="@item.ID">Delete</button>
+                                <a href="#" class="btn btn-rose btn-round">
+                                    Buy Now
                                 </a>
-                            </div>
-                            <div class="card-content">
-                                <h4 class="card-title">
-                                    Dolce & Gabbana
-                                </h4>
-                                <p class="card-description">The structured shoulders and sleek detailing ensure a sharp silhouette. Team it with a silk pocket square and leather loafers.</p>
-                                <div class="footer">
-                                    <div class="price-container">
 
-                                        <span class="price price-new">&euro;743</span>
-                                    </div>
-                                    <div class="stats">
-
-                                        <a href="#" class="btn btn-rose btn-round">
-                                            Buy Now
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card card-product card-plain">
-                            <div class="card-image">
-                                <a href="#pablo">
-                                    <img src="~/Content/img/suit-6.jpg" />
-                                </a>
-                            </div>
-                            <div class="card-content">
-                                <h4 class="card-title">
-                                    Dolce & Gabbana
-                                </h4>
-                                <p class="card-description">The structured shoulders and sleek detailing ensure a sharp silhouette. Team it with a silk pocket square and leather loafers.</p>
-                                <div class="footer">
-                                    <div class="price-container">
-
-                                        <span class="price price-new">&euro;743</span>
-                                    </div>
-                                    <div class="stats">
-
-                                        <a href="#" class="btn btn-rose btn-round">
-                                            Buy Now
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>*@
-                </div>
-
-                @*<div class="row">
-                    <div class="col-md-4">
-                        <div class="card card-product card-plain">
-                            <div class="card-image">
-                                <a href="#pablo">
-                                    <img src="~/Content/img/ring1.jpeg" />
-                                </a>
-                            </div>
-                            <div class="card-content">
-                                <h4 class="card-title">
-                                    Gucci
-                                </h4>
-                                <p class="card-description">The structured shoulders and sleek detailing ensure a sharp silhouette. Team it with a silk pocket square and leather loafers.</p>
-                                <div class="footer">
-                                    <div class="price-container">
-
-                                        <span class="price price-new"> &euro;743</span>
-                                    </div>
-                                    <div class="stats">
-
-                                        <a href="#" class="btn btn-rose btn-round">
-                                            Buy Now
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card card-product card-plain">
-                            <div class="card-image">
-                                <a href="#pablo">
-                                    <img src="~/Content/img/ring2.jpeg" />
-                                </a>
-                            </div>
-                            <div class="card-content">
-                                <h4 class="card-title">
-                                    Dolce & Gabbana
-                                </h4>
-                                <p class="card-description">The structured shoulders and sleek detailing ensure a sharp silhouette. Team it with a silk pocket square and leather loafers.</p>
-                                <div class="footer">
-                                    <div class="price-container">
-
-                                        <span class="price price-new">&euro;743</span>
-                                    </div>
-                                    <div class="stats">
-
-                                        <a href="#" class="btn btn-rose btn-round">
-                                            Buy Now
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card card-product card-plain">
-                            <div class="card-image">
-                                <a href="#pablo">
-                                    <img src="~/Content/img/ring3.jpeg" />
-                                </a>
-                            </div>
-                            <div class="card-content">
-                                <h4 class="card-title">
-                                    Dolce & Gabbana
-                                </h4>
-                                <p class="card-description">The structured shoulders and sleek detailing ensure a sharp silhouette. Team it with a silk pocket square and leather loafers.</p>
-                                <div class="footer">
-                                    <div class="price-container">
-
-                                        <span class="price price-new">&euro;743</span>
-                                    </div>
-                                    <div class="stats">
-
-                                        <a href="#" class="btn btn-rose btn-round">
-                                            Buy Now
-                                        </a>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+}
 
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="card card-product card-plain">
-                            <div class="card-image">
-                                <a href="#pablo">
-                                    <img src="~/Content/img/dress3.jpg" />
-                                </a>
-                            </div>
-                            <div class="card-content">
-                                <h4 class="card-title">
-                                    Gucci
-                                </h4>
-                                <p class="card-description">The structured shoulders and sleek detailing ensure a sharp silhouette. Team it with a silk pocket square and leather loafers.</p>
-                                <div class="footer">
-                                    <div class="price-container">
-
-                                        <span class="price price-new"> &euro;743</span>
-                                    </div>
-                                    <div class="stats">
-
-                                        <a href="#" class="btn btn-rose btn-round">
-                                            Buy Now
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card card-product card-plain">
-                            <div class="card-image">
-                                <a href="#pablo">
-                                    <img src="~/Content/img/dress1.jpg" />
-                                </a>
-                            </div>
-                            <div class="card-content">
-                                <h4 class="card-title">
-                                    Dolce & Gabbana
-                                </h4>
-                                <p class="card-description">The structured shoulders and sleek detailing ensure a sharp silhouette. Team it with a silk pocket square and leather loafers.</p>
-                                <div class="footer">
-                                    <div class="price-container">
-
-                                        <span class="price price-new">&euro;743</span>
-                                    </div>
-                                    <div class="stats">
-
-                                        <a href="#" class="btn btn-rose btn-round">
-                                            Buy Now
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card card-product card-plain">
-                            <div class="card-image">
-                                <a href="#pablo">
-
-                                    <img src="~/Content/img/dressB.jpeg" />
-
-                                </a>
-                            </div>
-                            <div class="card-content">
-                                <h4 class="card-title">
-                                    Dolce & Gabbana
-                                </h4>
-                                <p class="card-description">The structured shoulders and sleek detailing ensure a sharp silhouette. Team it with a silk pocket square and leather loafers.</p>
-                                <div class="footer">
-                                    <div class="price-container">
-
-                                        <span class="price price-new">&euro;743</span>
-                                    </div>
-                                    <div class="stats">
-
-                                        <a href="#" class="btn btn-rose btn-round">
-                                            Buy Now
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>*@
             </div>
 
-
-
-            <div class="col-md-3 col-md-offset-4">
-                <button rel="tooltip" class="btn btn-rose btn-round">Load more...</button>
-            </div>
-        </div><!-- section -->
+        </div>
 
 
 
+        <div class="col-md-3 col-md-offset-4" >
+            <button rel="tooltip" class="btn btn-rose btn-round">Load more...</button>
+        </div>
+    </div><!-- section -->
+</div>
 
 
-    </div>
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $(".js-delete").click(function (e) {
+                var link = $(e.target);
+
+
+
+
+
+
+
+                if (confirm("are you sure")) {
+                    $.ajax({
+                        url: "/api/delete/" + link.attr("data-staff-id"),
+                        method: "DELETE"
+                    })
+                        .done(function () {
+                            link.parents("div.delete").fadeOut(function () {
+                                $(this).remove();
+                            });
+                        })
+                        .fail(function () {
+                            alert("something failed");
+                        });
+                }
+
+            });
+
+        });
+    </script>
 
 
 }
+
 
 
 

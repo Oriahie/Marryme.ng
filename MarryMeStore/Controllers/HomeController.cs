@@ -2,6 +2,7 @@
 using Service;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 
 namespace MarryMeStore.Controllers
@@ -22,11 +23,27 @@ namespace MarryMeStore.Controllers
         public ActionResult Index()
         {
             List<Item> all = context.GetAll().ToList();
-            ViewBag.content = all;
-  
             
-            return View();
+            return View(all);
         }
-        
+
+        public ActionResult AddImage()
+        {
+            Item item = new Item();
+            return View(item);
+        }
+
+        [HttpPost]
+        public ActionResult AddImage(Item model, HttpPostedFileBase image1)
+        {
+            if (image1!=null)
+            {
+                model.Image = new byte[image1.ContentLength];
+                image1.InputStream.Read(model.Image, 0, image1.ContentLength);
+            }
+            context.Add(model);
+            context.Save();
+            return View(model);
+        }
     }
 }

@@ -25,6 +25,8 @@ namespace Domain.Entities
         public decimal Price { get; set; }
         public string Description { get; set; }
         public string ImageUrl { get; set; }
+        public bool IsDeleted { get; set; }
+        public byte[] Image { get; set; }
     }
 
     public class BaseModel

@@ -27,40 +27,43 @@
             <div class="row">
                 @foreach (var item in Model)
     {
-            <div class="col-md-4 delete ">
-                <div class="card card-product card-plain card-deck ">
-                    <div class="card-image">
-                        <a>
-                            @{ 
-                                var base64 = Convert.ToBase64String(item.Image);
-                                var imgsrc = string.Format("data:image/jpg;base64,{0}", base64);
-                            }
+                <div class="thumbnail">
+                    <div class="col-md-4 delete ">
+                        <div class="card card-product card-plain card-deck ">
+                            <div class="card-image img-size">
+                                <a>
+                                    @{
+                        var base64 = Convert.ToBase64String(item.Image);
+                        var imgsrc = string.Format("data:image/jpg;base64,{0}", base64);
+                                    }
 
-                            <img src="@imgsrc" alt="image is currently unavailable" class="img-responsive img-rounded" />
-                          
-                        </a>
-                    </div>
-                    <div class="card-content">
-                        <h4 class="card-title">
-                            @item.ItemName
-                        </h4>
-                        <p class="card-description">@item.Description</p>
-                        <div class="footer">
-                            <div class="price-container">
+                                    <img src="@imgsrc" alt="image is currently unavailable" class="img-responsive img-rounded" />
 
-                                <span class="price price-new"> ₦@item.Price</span>
-                            </div>
-                            <div class="stats">
-                                <button class="js-delete btn btn-rose btn-round" data-staff-id="@item.ID">Delete</button>
-                                <a href="#" class="btn btn-rose btn-round">
-                                    Buy Now
                                 </a>
+                            </div>
+                            <div class="card-content">
+                                <h4 class="card-title">
+                                    @item.ItemName
+                                </h4>
+                                <p class="card-description">@item.Description</p>
+                                <div class="footer">
+                                    <div class="price-container">
 
+                                        <span class="price price-new"> ₦@item.Price</span>
+                                    </div>
+                                    <div class="stats">
+                                        <button class="js-delete btn btn-rose btn-round" data-staff-id="@item.ID">Delete</button>
+                                        <a href="#" class="btn btn-rose btn-round">
+                                            Buy Now
+                                        </a>
+
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            
 }
 
             </div>
@@ -81,13 +84,6 @@
         $(document).ready(function () {
             $(".js-delete").click(function (e) {
                 var link = $(e.target);
-
-
-
-
-
-
-
                 if (confirm("are you sure")) {
                     $.ajax({
                         url: "/api/delete/" + link.attr("data-staff-id"),

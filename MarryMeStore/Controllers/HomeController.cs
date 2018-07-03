@@ -22,7 +22,7 @@ namespace MarryMeStore.Controllers
 
         public ActionResult Index()
         {
-            List<Item> all = context.GetAll().ToList();
+            List<Item> all = context.GetAll()/*.Where(e => !e.IsDeleted)*/.ToList();
             
             return View(all);
         }
